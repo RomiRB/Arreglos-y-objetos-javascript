@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>	<title>arreglos y objetos javascript</title>
+
+<body>
+
+	<script type="text/javascript">
+
+		var arreglo= new Array();
+
+		arreglo.push(3); 
+		arreglo.push('hola mundo!');
+
+		arreglo[0] = 'RomiRB'; //cambiando el valor del elemento declarando cual es el indice cero
+
+		console.log(arreglo[0]); // ge tira el 3 (que tiene indice cero 0)*/
+
+	//----------------------------------------------------------//
+
+		var arreglo1 = [1,2,3];
+
+		console.log(arreglo1.length); //longitud del arreglo
+									 // nos tira un 3 ya que nos dice la longitud del arreglo
+
+	//----------------------------------------------------------//
+
+		var arreglo2 = [1, 'Hola', 'Mundo'];
+
+		for(i=0; i<arreglo2.length; i++){
+			console.log(arreglo2[i]); // nos imprime todos los elementos del arreglo 1 Hola Mundo
+		}
+
+	//-------------------arreglos bidimensionales------------------//
+
+			// se puede guardar un arreglo dentro de otro arreglo....
+
+		/*[[1,2,3] primer elemento , ['a','b','c']segundo elemento]; */
+
+		var arreglo3 = [[1,2,3],['a','b','c']]; 
+
+		for (i=0; i < arreglo3[1].length; i++) { /* arreglo3[1].length saber la longitud del segundo elemento de indice 1*/
+			console.log(arreglo3[1][i]); /*arreglo3[1] numero del elemento que quiero recorrer segundo elemento de indice 1 */ //imprime solamente a, b y c
+
+			// console.log(arreglo3[0][i]); para imprimir el primer elemento cambiamos el índice del arreglo3[0]
+
+		}
+
+	//--------------cambiar de arreglo a cadena------------------//
+
+		var arreglo4 = [[1,2,3],['Ro','mi','na']]; 
+
+		var cadena = arreglo4[1].join('');
+
+		console.log(cadena); //Imprime ROMINA
+
+	//---------------cambiar de cadena a arreglo-----------------//
+
+		var cadena1 = 'RomiRB';
+
+		var arreglo5 = cadena1.split('');
+
+		console.log(arreglo5[0]); // el 0 imprime la letra " R "
+		console.log(arreglo5[1]); // el 1 imprime la letra " O " 
+		console.log(arreglo5[5]); // el 5 imprime la letra " B"
+
+	//-------------SI TENEMOS UN ELEMENTO DENTRO DE LA CADENA-----//
+
+		var cadena2 = 'A-BC';
+
+		var arreglo6 = cadena2.split('-'); //cuando encuentre un "-" me va a cortar hasta donde haya encontrado el guión y lo va a guardar como un elemento
+
+		console.log(arreglo6[1]); // el 1 imprime la letra " BC " luego del "-" lo considera el segundo elemento.
+
+	//-------------------------objetos---------------------------//
+
+		/*las variables también pueden declarar OBJETOS... para
+		//ello dentro de la variable, hay que darle un nombre al objeto ej: Rosa (objeto)
+		//Para crear una CLASE... hay que igual a un "NEW" y el nombre de la CLASE ej: Flores (clase)
+
+		var Rosa = new flores();  //le damos el parámetro del nombre
+
+		Rosa (objeto) esta instanciada, va a tomar sus métodos y atributos de la (clase) Flores*/
+
+		var Rosa1 = new flores1 ("Rosa trepadora");
+
+		function flores1(nombre){
+			
+			this.nombre = nombre; //objeto con su respectivo
+		}
+			console.log(Rosa1.nombre); //quiero que del objeto rosa extraigas el atributo nombre
+
+			// Rosa trepadora
+	//-------------------------------------------------------------------//		
+
+		var Rosa2 = new flores ("Rosa damascena"); //constructor de la clase objeto //instanciar un objeto
+		var Rosa3 = new flores ("Rosa de Alejandría");
+
+		function flores(nombre){
+			
+			this.nombre = nombre; //objeto con su respectivo
+		}
+
+		console.log("La rosa se llama " + Rosa2.nombre); //La rosa se llama Rosa damascena
+		console.log("La segunda rosa se llama " + Rosa3.nombre); //La rosa se llama Rosa de Alejandría
+
+	//-------------------------------------------------------------------//
+
+		var Rosa4 = new flores ("Rosa damascena"); //constructor de la clase objeto //instanciar un objeto
+		var Rosa5 = new flores ("Rosa de Alejandría");
+
+		function flores(nombre){
+			
+			this.nombre = nombre; //objeto con su respectivo (atributos)
+			this.color = function(){ //método (función dentro de una clase)
+				console.log("roja");
+			};//funcion anónima de qué color es la rosa
+		}
+
+		console.log("La rosa se llama " + Rosa4.nombre);
+		console.log("La segunda rosa se llama " + Rosa5.nombre);
+
+		Rosa4.color();  //roja
+
+		//-------------------------------------------------------------------//
+
+		var Rosa6 = new flores ("Rosa damascena"); //constructor de la clase objeto //instanciar un objeto
+		var Rosa7 = new flores ("Rosa de Alejandría");
+
+		function flores(nombre){
+			
+			this.nombre = nombre; //objeto con su respectivo (atributos)
+			this.color = function(){ //método (función dentro de una clase)
+				console.log(this.nombre + " es roja");
+			};//funcion anónima de qué color es la rosa
+		}
+
+		console.log("La rosa se llama " + Rosa6.nombre);
+		console.log("La segunda rosa se llama " + Rosa7.nombre);
+
+		Rosa6.color(); //Rosa damascena es roja
+
+	//-----------------------objetos---------------------------// 
+
+
+	</script>
+
+</body>
+</html>
